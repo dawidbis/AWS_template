@@ -1,0 +1,14 @@
+{
+  // Każdy nowy terminal w tym workspace od razu ładuje env.ps1 (komendy learn-*, profil, region, .venv).
+  "terminal.integrated.profiles.windows": {
+    "AWS learn": {
+      "path": "powershell.exe",
+      "args": ["-NoExit", "-NoLogo", "-ExecutionPolicy", "Bypass", "-Command", ". '${workspaceFolder}\\env.ps1'"],
+      "icon": "cloud"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "AWS learn",
+  // env.ps1 sam aktywuje .venv - bez podwójnej aktywacji przez rozszerzenie Python.
+  "python.terminal.activateEnvironment": false,
+  "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+}

@@ -1,0 +1,5 @@
+{
+  "recommendations": ["hashicorp.terraform", "ms-python.python", "amazonwebservices.aws-toolkit-vscode"],
+  // 4ops.terraform koliduje z oficjalnym hashicorp.terraform (podwójne/zepsute podpowiedzi).
+  "unwantedRecommendations": ["4ops.terraform"]
+}

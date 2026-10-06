@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: __LAB__ (SAM)
+
+Globals:
+  Function:
+    Runtime: __RUNTIME__
+    Architectures: [x86_64]  # zgodne z Dockerem lokalnie (sam local)
+    Timeout: 10
+    MemorySize: 128
+    Environment:
+      Variables:
+        LOG_LEVEL: INFO
+    Tags:
+      Project: __LAB__
+      Purpose: learning
+
+Resources:
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-hello"
+      CodeUri: src/
+      Handler: app.handler
+      LoggingConfig:
+        LogGroup: !Ref HelloLogGroup
+      # Uprawnienia: SAM policy templates, np.
+      # Policies:
+      #   - S3ReadPolicy: { BucketName: !Ref Bucket }
+
+  # Własny log group -> znika razem ze stackiem (sam-down), ma retencję.
+  HelloLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AWS::StackName}-hello"
+      RetentionInDays: 3
+
+Outputs:
+  FunctionName:
+    Value: !Ref HelloFunction

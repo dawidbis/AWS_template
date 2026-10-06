@@ -1,0 +1,27 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+.build/
+
+# SAM
+.aws-sam/
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# misc
+out.json
+
+# lokalna konfiguracja (setup.cmd)
+config.psd1
+CLAUDE.local.md
+
+# laby są lokalne - w repo tylko pusty folder
+projects/*
+!projects/.gitkeep

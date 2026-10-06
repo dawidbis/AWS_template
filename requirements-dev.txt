@@ -1,0 +1,4 @@
+boto3
+pytest
+moto[s3,sqs,sns,dynamodb,events,stepfunctions]
+aws-lambda-powertools

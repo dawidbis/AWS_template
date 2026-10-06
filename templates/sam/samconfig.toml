@@ -1,0 +1,28 @@
+version = 0.1
+
+[default.global.parameters]
+stack_name = "__LAB__-sam"
+region = "__REGION__"
+profile = "__PROFILE__"
+
+[default.build.parameters]
+cached = true
+parallel = true
+
+[default.validate.parameters]
+lint = true
+
+[default.deploy.parameters]
+# resolve_s3: SAM sam zakłada (raz) stack aws-sam-cli-managed-default z bucketem na artefakty.
+resolve_s3 = true
+s3_prefix = "__LAB__"
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM"
+confirm_changeset = false
+fail_on_empty_changeset = false
+tags = "Project=\"__LAB__\" Purpose=\"learning\""
+
+[default.sync.parameters]
+watch = true
+
+[default.local_invoke.parameters]
+skip_pull_image = true

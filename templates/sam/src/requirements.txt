@@ -1,0 +1,1 @@
+# Zależności runtime lambdy (sam build je dociąga). boto3 jest już w runtime.
